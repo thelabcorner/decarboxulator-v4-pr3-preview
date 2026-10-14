@@ -4,7 +4,7 @@ Temporary **GitHub Pages preview**, isolated from the production `thelabcorner/d
 
 - Source repository: https://github.com/thelabcorner/decarboxulator
 - Pull request: https://github.com/thelabcorner/decarboxulator/pull/3
-- Exact source commit: `fddad09f5f55bfd6e5e0e4659d85d334acce42c0`
+- Exact source commit: `db6794c7487beca0d2fd3834eb661e3c95d319cd`
 - Preview URL: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/
 - Pages deployment: GitHub Actions, not Cloudflare.
 - No commits or Pages releases are made to the production repository by this preview.
