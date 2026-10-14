@@ -1,0 +1,65 @@
+name: Deploy Decarboxulator PR 3 Preview
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: decarboxulator-pr3-pages-preview
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build verified PR #3 source
+    runs-on: ubuntu-latest
+    env:
+      VITE_BASE_PATH: /decarboxulator-v4-pr3-preview/
+      VITE_SITE_URL: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/
+    steps:
+      - name: Checkout exact PR #3 source commit
+        uses: actions/checkout@v4
+        with:
+          repository: thelabcorner/decarboxulator
+          ref: fddad09f5f55bfd6e5e0e4659d85d334acce42c0
+          persist-credentials: false
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Verify calculator unit tests
+        run: npm test
+      - name: Build and validate preview
+        run: npm run build
+      - name: Mark preview unindexable and disable Jekyll
+        shell: bash
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/client/robots.txt
+          find dist/client -type f -name index.html -print0 | xargs -0 sed -i 's/content="index, follow/content="noindex, nofollow/g'
+          touch dist/client/.nojekyll
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/client
+
+  deploy:
+    name: Deploy temporary Pages site
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
