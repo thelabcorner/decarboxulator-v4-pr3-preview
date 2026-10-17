@@ -21,12 +21,13 @@ jobs:
     env:
       VITE_BASE_PATH: /decarboxulator-v4-pr3-preview/
       VITE_SITE_URL: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/
+      VITE_PREVIEW_MODE: 'true'
     steps:
       - name: Checkout exact PR #3 source commit
         uses: actions/checkout@v4
         with:
           repository: thelabcorner/decarboxulator
-          ref: 9741c1422a5352c4cc4b4f3fa272b3f24abb9164
+          ref: 8f1636ef7aae2984f9faef670f5f787bfbfaf697
           persist-credentials: false
       - name: Set up Node.js 24
         uses: actions/setup-node@v4
@@ -39,6 +40,8 @@ jobs:
         run: npm test
       - name: Build and validate preview
         run: npm run build
+      - name: Retire stale preview offline cache
+        run: node scripts/prepare-preview-deploy.mjs
       - name: Mark preview unindexable and disable Jekyll
         shell: bash
         run: |
