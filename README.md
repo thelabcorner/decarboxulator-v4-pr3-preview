@@ -4,10 +4,12 @@ Temporary **GitHub Pages preview**, isolated from the production `thelabcorner/d
 
 - Source repository: https://github.com/thelabcorner/decarboxulator
 - Pull request: https://github.com/thelabcorner/decarboxulator/pull/3
-- Exact source commit: `a194b05c4f357da49c9bee6c917b5248412c17ae`
+- Exact source commit: `d18d8c236bc7b65ba2ba648946ef34c64f0851f7`
 - Preview URL: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/
 - Seal/Vent pressure tracker: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/pressure-tracker/
 - Vacuum-aware pressure heatmap: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/max-pressure/
+- Update: dense New York instrument-style pressure tracker, restored THCa → THC / THC → THCa names, and shared free-headspace estimator.
+- Verification: 181 unit tests; 185 pressure/headspace interactive checks; 400 existing calculator UI checks (Chromium/WebKit).
 - Pages deployment: GitHub Actions, not Cloudflare.
 - No commits or Pages releases are made to the production repository by this preview.
 - Temporary test instance; remove this repository when the preview is no longer needed.
