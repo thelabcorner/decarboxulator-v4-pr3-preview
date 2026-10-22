@@ -4,16 +4,17 @@ Temporary **GitHub Pages preview**, isolated from the production `thelabcorner/d
 
 - Source repository: https://github.com/thelabcorner/decarboxulator
 - Pull request: https://github.com/thelabcorner/decarboxulator/pull/3
-- Exact source commit: `d25dd5252ce4d936fb76319d2ddea96e34d75a99` (feature/v4-multi-acid-cannabinoids-20261014)
+- Exact source commit: `216f6a498cd1355de50bd732822176c731af0c3d` (feature/v4-multi-acid-cannabinoids-20261014)
 - Preview URL: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/
 - Seal/Vent pressure tracker: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/pressure-tracker/
 - Vacuum-aware pressure heatmap: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/max-pressure/
 - Cartridge formulation with starting batch ingredient weigh-out: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/cartridge-formulation/
+- Extract formulation with the same ingredient controls and mass model: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/extract-formulation/
 - Scale readability: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/scale-resolution/
 - Gauge readability: https://thelabcorner.github.io/decarboxulator-v4-pr3-preview/tools/gauge-resolution/
-- Update: cartridge formulation now includes a cannabinoid-only starting subtotal, starting mass without terpenes, separately reserved terpene addition, gross starting ingredients, theoretical CO2 release, post-decarb cannabinoid mass, finished non-terpene subtotal, and final gross blend. Every quantity is shown alongside individual THCa/CBD/terpene weigh-out amounts. Calculations still support multiple acidic cannabinoids, both batch workflows, and retained acidic forms. The saved calculation library, migration, and the THCa 0.877 conversion factor remain available.
+- Update: two distinct sidebar and preview routes, Cartridge formulation and Extract formulation, use one workbench and shared saved recipe. Extract language uses portions instead of cartridges. Both modes support user-entered transfer loss on the gross finished blend, backward compensation in target mode and forward recoverable yield in available-batch mode. Original cannabinoid/terpene weigh-out, separate CO2 loss, pre-terpene charge, gross starting ingredients, and post-transfer net recovered mass remain available.
 - Previous update retained: slider-first scale/gauge workbenches and optional equilibrium CO2 dissolution in pressure tools.
-- Verification before publishing: 206 unit tests, 520 calculator-studio Chromium/WebKit checks across mobile and desktop, TypeScript and production source build. Pages workflow independently rebuilds and tests the pinned source commit.
+- Verification before publishing: 209 unit tests, 824 calculator-studio Chromium/WebKit checks across mobile and desktop, TypeScript, SEO and production source build. Pages workflow independently rebuilds and tests the pinned source commit.
 - The preview build excludes production analytics and new service-worker registration. A one-time migration worker retires cached offline assets from prior preview deployments.
 - Pages deployment: GitHub Actions, not Cloudflare.
 - No commits or Pages releases are made to the production repository by this preview.

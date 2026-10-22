@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: thelabcorner/decarboxulator
-          ref: d25dd5252ce4d936fb76319d2ddea96e34d75a99
+          ref: 216f6a498cd1355de50bd732822176c731af0c3d
           persist-credentials: false
       - name: Set up Node.js 24
         uses: actions/setup-node@v4
